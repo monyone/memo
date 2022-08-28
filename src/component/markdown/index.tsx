@@ -142,7 +142,7 @@ export const Td: React.FC<PropsWithChildren> = ({ children }) => {
 export const Pre: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <pre className='my-2'>
-      { isValidElement(children) ? cloneElement(children, { block: true }) : children}
+      { isValidElement(children) ? cloneElement<any>(children, { block: true }) : children}
     </pre>
   );
 };
@@ -152,7 +152,9 @@ export const Code: React.FC<PropsWithChildren<any>> = ({ className, children, bl
 
   if (language) {
     return (
-      <SyntaxHighlighter language={language[0]} PreTag='div' style={routeros} children={children} {... props} />
+      <SyntaxHighlighter language={language[0]} PreTag='div' style={routeros} {... props}>
+        { children }
+      </SyntaxHighlighter>
     );
   } else if (block) {
     return (
