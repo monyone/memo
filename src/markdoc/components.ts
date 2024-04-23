@@ -1,4 +1,5 @@
 import Blockquote from "@/app/(components)/(markdoc)/blockquote";
+import Code from "@/app/(components)/(markdoc)/code";
 import Em from "@/app/(components)/(markdoc)/em";
 import Fence from "@/app/(components)/(markdoc)/fence";
 import Heading from "@/app/(components)/(markdoc)/heading";
@@ -27,5 +28,6 @@ export default {
   Strong,
   Em,
   S,
-  Link
+  Link,
+  Code
 };

@@ -76,5 +76,11 @@ export default {
       title: { type: String }
     }
   },
-  /* code, text, hardbraek, softbreak, error は省略 */
+  code: {
+    render: 'Code',
+    attributes: {
+      content: { type: String, required: true },
+    }
+  }
+  /* text, hardbraek, softbreak, error は省略 */
 } as Config['nodes'];
