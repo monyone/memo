@@ -10,15 +10,19 @@ type Post = {
 
 export default function Card({ href, title, description }: Post) {
   return (
-    <div className='inline-flex flex-col' role='presentation none'>
-      <div className='flex' role='presentation none'>
-        <Link href={href}>{title}</Link>
-      </div>
-      <div className='flex' role='presentation none'>
-        <p>
-          { description }
-        </p>
-      </div>
+    <div className='flex flex-col rounded-lg bg-slate-100' role='presentation none'>
+      <Link className="block h-full" href={href}>
+        <div className='flex flex-col p-4' role='presentation none'>
+          <div className='flex font-semibold' role='presentation none'>
+            {title}
+          </div>
+          <div className='flex' role='presentation none'>
+            <p className='text-sm'>
+              { description }
+            </p>
+          </div>
+        </div>
+      </Link>
     </div>
   );
 };

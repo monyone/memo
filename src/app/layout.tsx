@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header />
         <div role="presentation none">
-          <main className="max-w-4xl w-full mx-auto px-4 mt-8 pb-6 rounded-lg bg-slate-100">
+          <main className="max-w-4xl w-full mx-auto mt-8">
             {children}
           </main>
         </div>

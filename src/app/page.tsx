@@ -16,13 +16,12 @@ export default async function Home() {
         description: data.description as string
       }
     });
-  console.log(pages)
 
   return (
-    <main>
-      <div className='grid-cols-3 gap-4'>
+    <div className='px-4'>
+      <div className='grid grid-cols-3 gap-4'>
         { pages.map((page) => <Card {... page } />) }
       </div>
-    </main>
+    </div>
   );
 }
