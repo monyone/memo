@@ -40,7 +40,6 @@ export default async function Post({ params }: PageProps) {
   const { path: dir } = params;
   const filePath = path.join(... BLOG_DIR, `${dir}`, `index.md`);
   const markdown = fs.readFileSync(filePath, { encoding: 'utf-8' });
-  const { data } = matter(markdown);
 
   const ast = Markdoc.parse(markdown);
   return Markdoc.renderers.react(

@@ -52,6 +52,8 @@ jobs:
         with:
           node-version: "20"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
+      - name: Prepare next.config.mjs
+        run: mv next.config.export.mjs next.config.mjs
       - name: Setup Pages
         uses: actions/configure-pages@v2
         with:

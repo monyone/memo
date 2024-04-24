@@ -1,6 +1,6 @@
 ---
-title:
-description:
+title: テスト用タイトル
+description: テスト用説明です
 ---
 
 # H1
