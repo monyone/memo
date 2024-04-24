@@ -9,7 +9,9 @@ import { Metadata } from 'next';
 
 import nodes from '@/markdoc/nodes'
 import components from '@/markdoc/components';
-import { BLOG_DIR, BLOG_TITLE } from '@/constants';
+import { ImageWithSlug } from '../(components)/(markdoc)/image';
+
+import { BLOG_ABSOLUTE_PATH, BLOG_CWD_PATH, BLOG_TITLE } from '@/constants';
 
 type PageProps = {
   params: Params,
@@ -19,14 +21,14 @@ type Params = {
 }
 
 export async function generateStaticParams() {
-  return (await glob(path.join(... BLOG_DIR, `*`, `index.md`))).map((p) => {
-    return { path: path.parse(path.relative(path.join(... BLOG_DIR), p)).dir };
+  return (await glob(path.join(... BLOG_ABSOLUTE_PATH, `*`, `index.md`))).map((p) => {
+    return { path: path.parse(path.relative(path.join(... BLOG_ABSOLUTE_PATH), p)).dir };
   });
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { path: dir } = params;
-  const filePath = path.join(... BLOG_DIR, `${dir}`, `index.md`);
+  const filePath = path.join(... BLOG_ABSOLUTE_PATH, `${dir}`, `index.md`);
   const markdown = fs.readFileSync(filePath, { encoding: 'utf-8' });
   const { data } = matter(markdown);
 
@@ -38,7 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function Post({ params }: PageProps) {
   const { path: dir } = params;
-  const filePath = path.join(... BLOG_DIR, `${dir}`, `index.md`);
+  const filePath = path.join(... BLOG_ABSOLUTE_PATH, `${dir}`, `index.md`);
   const markdown = fs.readFileSync(filePath, { encoding: 'utf-8' });
 
   const ast = Markdoc.parse(markdown);
@@ -49,6 +51,11 @@ export default async function Post({ params }: PageProps) {
       variables: {}
     }),
     React,
-    { components }
+    {
+      components: {
+        ... components,
+        'Image': ImageWithSlug(path.join(... BLOG_CWD_PATH, dir))
+      },
+    }
   )
 };

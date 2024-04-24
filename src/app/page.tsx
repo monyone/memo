@@ -1,4 +1,4 @@
-import { BLOG_DIR } from '@/constants';
+import { BLOG_ABSOLUTE_PATH } from '@/constants';
 import fs from 'fs';
 import { glob } from 'glob';
 import path from 'path';
@@ -9,9 +9,9 @@ import dayjs from 'dayjs';
 import Card from '@/app/(components)/(organization)/card';
 
 export default async function Home() {
-  const pages = (await glob(path.join(... BLOG_DIR, `*`, `index.md`))).map((p) => {
+  const pages = (await glob(path.join(... BLOG_ABSOLUTE_PATH, `*`, `index.md`))).map((p) => {
       const { data } = matter(fs.readFileSync(p));
-      const relative = path.relative(path.join(... BLOG_DIR), p);
+      const relative = path.relative(path.join(... BLOG_ABSOLUTE_PATH), p);
       const created = dayjs(execSync(`git log --follow --format=%cI --reverse --date default ${p}`).toString('utf-8').trim().split('\n')[0]);
       const modified = dayjs(execSync(`git log --follow --format=%cI --date default ${p}`).toString('utf-8').trim().split('\n')[0]);
 

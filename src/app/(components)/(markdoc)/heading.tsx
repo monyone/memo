@@ -22,6 +22,6 @@ export default function Heading({ level, id, children }: React.PropsWithChildren
     case 4: return (<div className="group my-4 text-lg"><h4 id={id} className="inline-block">{children}</h4>{anchor}</div>);
     case 5: return (<div className="group my-4 text-lg"><h5 id={id} className="inline-block">{children}</h5>{anchor}</div>);
     case 6: return (<div className="group my-4 text-lg"><h6 id={id} className="inline-block">{children}</h6>{anchor}</div>);
-    default: return (<div className="group my-4 text-lg"><h6 id={id} className="inline-block">{children}</h6>{anchor}</div>);
+    default: return (<div className="group my-4 text-lg"><span id={id} className="inline-block">{children}</span>{anchor}</div>);
   }
 };
