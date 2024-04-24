@@ -43,7 +43,7 @@ export default function Card({ href, title, description, created, modified, imag
                   { created } 作成
                 </div>
                 <div className='inline-block'>
-                  { modified } 編集
+                  { modified } 更新
                 </div>
               </div>
             </div>

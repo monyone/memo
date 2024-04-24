@@ -77,6 +77,8 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+      - name: Prepare index.txt to memo.txt
+        run: cp ./out/index.txt ./out/memo.txt
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
