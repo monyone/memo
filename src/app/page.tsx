@@ -17,7 +17,7 @@ export default async function Home() {
 
       return {
         path: p,
-        href: path.join(path.dirname(relative), 'index.html'),
+        href: path.dirname(relative) + path.sep,
         title: data.title as string,
         description: data.description as string,
         created: created.format('YYYY/MM/DD'),

@@ -23,7 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header />
         <div role="presentation none">
-          <main className="max-w-4xl w-full mx-auto mt-8">
+          <main className="max-w-4xl w-full mx-auto my-8">
             {children}
           </main>
         </div>
