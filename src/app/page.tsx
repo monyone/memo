@@ -11,7 +11,7 @@ export default async function Home() {
       const { data } = matter(fs.readFileSync(p));
       const relative = path.relative(path.join(... BLOG_DIR), p);
       return {
-        href: path.dirname(relative),
+        href: path.join(path.dirname(relative), 'index.html'),
         title: data.title as string,
         description: data.description as string
       }
