@@ -1,6 +1,7 @@
 ---
 title: このドキュメントを作るまで
 description: ドキュメントサイトを作った時のメモ書き
+color: cornflowerblue
 ---
 
 # このドキュメントを作るまで
@@ -48,4 +49,4 @@ yarn add --dev @markdoc/markdoc
 
 ### MDX
 
-Markdown は Markdown として表現したくて MDX 内で Next.js のフックを使いたくなかったので。
+Markdown として表現したくて MDX 内で Next.js のフックを使いたくなかったので。

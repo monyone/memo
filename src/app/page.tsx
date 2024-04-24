@@ -23,6 +23,8 @@ export default async function Home() {
         created: created.format('YYYY/MM/DD'),
         modified: modified.format('YYYY/MM/DD'),
         hidden: data.hidden!!,
+        color: data.color,
+        image: data.image,
         order: created.unix()
       }
     }).filter(({ hidden }) => !hidden);
