@@ -39,6 +39,8 @@ yarn add --dev @markdoc/markdoc
 
 `@markdoc/next.js` は App Router の対応が Next.js 13 の時のままなので利用しませんでした。
 
+frontmatter は gray-matter を使って取っています
+
 ## ハマったポイント
 
 ### slug + index.html のルーティング
